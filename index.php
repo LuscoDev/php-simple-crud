@@ -5,7 +5,7 @@
 	<title>CRUD PHP</title>
 	
 	<style>
-		#formEditar{
+		#formEditar, #formGravar, #btnEsconder{
 			display: none;
 		}
 	</style>
@@ -15,6 +15,17 @@
 		window.onload = function(){		
 			let botoes = document.getElementsByClassName('btnsExcluir');	
 			let codProdutoExcluir;
+
+			document.getElementById('btnAdd').addEventListener("click",function(){
+				document.getElementById("formGravar").style.display = 'block';
+				document.getElementById("btnEsconder").style.display = 'block'
+			});
+			
+			document.getElementById("btnEsconder").addEventListener("click",function(){
+				document.getElementById("formGravar").style.display = 'none';
+				document.getElementById("btnEsconder").style.display = 'none';
+			});
+
 			for(let i = 0; i < botoes.length;i++){
 				botoes[i].addEventListener("click", function(){
 					//window.location.href = "delete.php?";
@@ -24,7 +35,7 @@
 
 						if ( btns[i].id == event.target.id ) {	
 						codProdutoExcluir = Number(btns[i].parentNode.parentNode.firstChild.firstChild.nodeValue);						
-							console.log(codProdutoExcluir) ;
+							//console.log(codProdutoExcluir) ;
 						};
 					};
 						window.location.replace('delete.php?cod='+codProdutoExcluir);
@@ -47,17 +58,23 @@
 </head>
 <body>
 	<h2>Produtos CRUD</h2>
+	<button id="btnAdd">Adicionar </button>
+
+	 <br>
 	<form action="gravar.php" id="formGravar">
 		<label>Nome: 
-			<input type="text" name="gravarNome">			
+			<input type="text" name="gravarNome" required>			
 		</label>
 		</br>
 		<label>Valor:
-			<input type="text" name="gravarValor">
+			<input type="text" name="gravarValor" required>
 		</label>
 		</br>
 		<input type="submit">
+		
+		</br>
 	</form>
+	<button id="btnEsconder"> Esconder </button>
 	<?php
 
 		if ( isset( $_GET['gravar'] ) ) { 
@@ -112,15 +129,15 @@
 	<form action="editar.php" id="formEditar">
 		<label>
 			Código:
-			<input type="text" name="codProduto" id="cmpCodProduto" readonly >
+			<input type="text" name="codProduto" id="cmpCodProduto" readonly required>
 		</label>
 		</br>
 		<label> Nome:
-			<input type="text" name="nomeProduto" required="">
+			<input type="text" name="nomeProduto" required>
 		</label>
 		</br>
 		<label>Valor: 
-			<input type="text" name="valorProduto" required="">
+			<input type="text" name="valorProduto" required>
 		</label>
 		</br>
 		<button>Enviar</button>
