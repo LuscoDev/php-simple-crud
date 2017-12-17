@@ -57,8 +57,16 @@
 
 </head>
 <body>
+	<?php
+		session_start();
+		if ( !isset( $_SESSION['login'] ) && !isset( $_SESSION['senha'] ) ) {
+			header("Location: home.php");
+		}
+	
+	?>
 	<h2>Produtos CRUD</h2>
 	<button id="btnAdd">Adicionar </button>
+	<a href="sair.php">Sair</a>	
 
 	 <br>
 	<form action="gravar.php" id="formGravar">
@@ -75,8 +83,7 @@
 		</br>
 	</form>
 	<button id="btnEsconder"> Esconder </button>
-	<?php
-
+	<?php				
 		if ( isset( $_GET['gravar'] ) ) { 
 			if ( $_GET['gravar'] == "1" ) {				
 				echo "Registro adicionado com sucesso!";

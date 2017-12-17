@@ -62,6 +62,34 @@ class ProdutoDAO{
 		}
 	}
 
+	function selectUsuarios($nomeUsuario, $senha){
+		session_start();
+		require_once('classes/Conecta.php');
+		require_once('classes/Usuario.php');
+
+		$con = null;
+		$sql = "SELECT * FROM usuarios WHERE `nome-usuario` = '".$nomeUsuario."' AND `senha` = '".$senha."'";		
+		try {
+			$conexao = new Conecta();
+			$con = $conexao->getConexao();
+			$rs = $con->query($sql);			
+			$usuario;			
+
+			while ( $row = $rs->fetchObject() ) {
+					$usuario = new Usuario( $row->nome-usuario, $row->senha );					
+					$_SESSION['login'] = $nomeUsuario;
+					$_SESSION['senha'] = $senha;
+
+					header("Location: index.php");
+					return true;
+			}			
+			header("Location: home.php?invalido=1");				
+			
+		} catch (PDOException $e) {
+			echo $e->getMessage();
+		}		
+	}
+
 	function selectProdutos(){
 		require_once('classes/Conecta.php');
 		require_once('classes/Produto.php');
