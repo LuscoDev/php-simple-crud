@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>CRUD PHP</title>
-	
+	<link rel="stylesheet" href="global-style.css">
+	<link rel="stylesheet" href="index-style.css">
 	<style>
 		#formEditar, #formGravar, #btnEsconder{
 			display: none;

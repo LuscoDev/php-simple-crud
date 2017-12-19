@@ -33,7 +33,7 @@ button:hover, [type="submit"]:hover, [type="button"]:hover{
 	background-color: #009999;
 }
 
-/* Cabeçalho */
+/* Cabeçalho pagina Home*/
 
 header{
 	height: 130px;
@@ -77,6 +77,8 @@ h1{
 	color: #ff6600;
 }
 
+/* Corpo da pagina home */
+
 article{
 	width: 100%;
 }
@@ -89,6 +91,7 @@ form{
 	border-bottom-style: none;
 	padding: 50px 10px 150px 52px;
 	background-color: #99e6ff;
-
-
 }
+
+
+

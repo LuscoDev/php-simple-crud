@@ -1,0 +1,40 @@
+#tabela{
+	background-color: #ff3300;
+	width: 500px;
+	margin: 0 auto;
+}
+
+h2{
+	width: 500px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#btnAdd{
+	position: relative;
+	left: 47%;	
+
+}
+
+button:hover{
+	padding: 0;
+	padding-left: 4px: 		
+}
+
+a{
+	position: relative;
+	width: 50px;	
+	text-align: center;
+	left:  70%;
+}
+
+#tabela{
+	margin-top: 90px;
+	border-radius: 10px;
+	border-collapse: collapse;
+}
+
+tr:nth-child(even){
+	background-color: #ff8566;	
+}
+
